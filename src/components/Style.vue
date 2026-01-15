@@ -14,11 +14,25 @@ function toggleBold(){
     bold.value = !bold.value
 }
 
+const style1 = {
+    color: "red"
+}
+
+const style2 = {
+    TextTransform: "uppercase",
+    fontWeight: "bold"
+}
+
 </script>
 
 <template>
   <h1 :class="{red: red, bold: bold}">Style</h1>
   <h1 :class="array">Style</h1>
+
+  <h1 :style="style1">Style</h1>
+  <h1 :style="style2">Style</h1>
+  <h1 :style="[style1,style2]">Style</h1>
+
   <button v-on:click="toggleRed">Red</button>
   <button v-on:click="toggleBold">Bold</button>
 </template>

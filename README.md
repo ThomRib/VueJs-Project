@@ -244,3 +244,19 @@ Berbeda dengan style yang menggunakan value boolean pada Object-nya, pada style,
 Dan untuk Array, digunakan untuk menggabungkan beberapa Object style
 
 ---
+
+# Scoped CSS
+Saat kita membuat style pada komponen dengan attribut scoped</br>
+Itu artinya Style tersebut hanya digunakan di Componet tersebut</br>
+Hal ini membuat kita mudah melakukan maintain style CSS, karena tidak perlu khawatir bentrok dengan style di Component lainnya
+
+---
+
+# Conditional Rendering
+Saat kita membuat Component, kita pasti akan sering sekali menambahkan kondisi</br>
+Misal jika kondisi terpenuhi, maka component/ element akan ditampilkan, jika tidak, maka component/element tidak perlu ditampilkan</br>
+Vue menyediakan banyak directive untuk melakukan Conditional Rendering</br>
+Ada v-if untuk kondisi if, v-else-if untuk kondisi else if dan v-else untuk kondisi else</br>
+Kita bisa tempatkan di template atau di element HTML
+
+---
