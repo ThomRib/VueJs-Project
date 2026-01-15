@@ -260,3 +260,92 @@ Ada v-if untuk kondisi if, v-else-if untuk kondisi else if dan v-else untuk kond
 Kita bisa tempatkan di template atau di element HTML
 
 ---
+
+## Show
+Saat menggunakan Directive if, else-if dan else, Element yang kita tambahkan Directive tersebut tidak akan ditambahkan ke DOM jika tidak dibutuhkan</br>
+Jadi bukan menghilangkan tampilan menggunakan CSS display</br>
+Namun, ada Directive yang bisa digunakan untuk menghilangkan element menggunakan CSS display, yaitu v-show</br>
+Namun saat menggunakan v-show, artinya element tetap akan ditambahkan ke DOM
+
+---
+
+## List Rendering
+Salah satu hal yang biasa dilakukan dalam halaman web, menampilkan kumpulan data dan Array menjadi element</br>
+Biasanya, hal ini kita lakukan menggunakan perulangan</br>
+Hal ini juga sama bisa dilakukan di Vue menggunakan Directive v-for </br>
+Kita bisa menggunakan v-for untuk melakuan iterasi terhadapa data Array</br>
+Value pada Directive v-for, bisa kita gunakan seperti menggunakan for loop di JavaScript, misal "item in items" atau "(item, index) in items"
+
+---
+
+## List for Object
+Selain melakukan interasi terhadap Array, Directive v-for juga bisa digunakan untuk melakukan iterasi attribute yang ada di Object</br>
+Caranya sama seperti melakukan iterasi object di JavaScript, kita bisa menggunakan value "value in object" atau "(value, key) in object"
+
+---
+
+## List for Range
+Kadang-kadang, kita misal hanya ingin melakukan iterasi element sejumlah berapa kali</br>
+Directive v-for juga bisa digunakan untuk Range caranya bisa mengguankan value "n in number", dimana dimulai dari 1 sampai number
+
+---
+
+## Key
+Saat melakukan render ulang pada List Rendering, Vue akan melakukan strategi "in-place patch". Jika urutan element berubah, dibanding memindahkan element pada DOM, Vue akan menimpa setiap element dengan data element yang baru.</br>
+Strategi ini mungkin baik ketika element yang ditampilkan sederhana, namun jika kompleks, maka bisa memperlambat proses karena tiap perubahan akan me-replace ulang semua element</br>
+Untuk memberi tahu id element ke Vue, kita bisa menambahkan key pada element, sehingga Vue tidak akan melakukan replace seluruh element, hanya akan memindahkan atau mengubah element yang berubah saja</br>
+Caranya kita bisa tambahkan binding attribute key pada element nya
+
+---
+
+## v-for dan v-if
+Directive v-for dan v-if, bisa langsung di integrasikan dalam satu element</br>
+Directive v-if memiliki prioritas yang utama dibanding v-for, jadi jika kondisi v-if terpenuhi, baru iterasi di v-for dilakukan</br>
+Jadi jangan sampai salah mengintegrasikan v-for dan v-if, kita akan lihat contoh benar nya
+## (benar)
+```vue
+<script setup>
+const items = [
+    {
+        id: 1,
+        Text: "learn vue 3",
+        done: true
+    },
+    {
+        id: 2,
+        Text: "learn vue Router",
+         done: false
+    },
+    {
+        id: 3,
+        Text: "learn vue pinia",
+         done: false
+    }
+];
+</script>
+
+<template>
+    <h1>Todo List</h1>
+    <ul v-for="item in items" v-bind:key="item.id" v-if="!item.done">
+        <li v-for="(value, key) in item" v-bind:key="key">
+           {{ key }}: {{ value }}
+        </li>
+    </ul>
+
+    <div>
+        <h1  v-for="i in 10">Hello {{ i }}</h1>
+    </div>
+</template>
+```
+
+---
+
+## Event Handling
+Untuk menambahkan Event Handling pada element, kita bisa menggunakan Directive v-on, diikuti dengan argument berupa nama event nya, misal v-on:click=""</br>
+Atau, kita bisa menggunakan shortcut menggunakan simbol @, misal @click=""</br>
+Value dari Directive v-on bisa diisi dengan function | Inline Statement | Object (without argument)</br>
+https://vuejs.org/api/built-in-directives.html#v-on</br>
+Hampir semua Event Handler bisa dilakukan di Vue</br>
+https://developer.mozilla.org/en-US/docs/Web/Events
+
+---
