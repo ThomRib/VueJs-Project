@@ -1,10 +1,16 @@
 <script setup>
-    const props = defineProps(["class"])
-    const emits = defineEmits(["click"])
+import { useAttrs } from 'vue';
+
+const props = defineProps(["contoh"])
+console.info(props)
+
+const attributes = useAttrs();
+console.info(attributes);
+
 </script>
 
 <template>
-    <button :class="props.class" @click="emits('click')">My Button</button>
+    <button>My Button : {{ attributes.name }}</button>
 </template>
 
 <style scoped>

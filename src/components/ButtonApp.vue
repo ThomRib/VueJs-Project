@@ -1,5 +1,6 @@
 <script setup>
 import MyButton from './MyButton.vue';
+import Container from './Container.vue';
 
 function clickHandler(){
     alert("You click me");
@@ -7,7 +8,21 @@ function clickHandler(){
 </script>
 
 <template>
- <MyButton class="button" @click="clickHandler"/>
+ <container title="Contoh Button">
+    <template #header>
+        <h1>Button App</h1>
+    </template>
+
+    <template v-slot:default>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate at dolorem ipsa eos quas maxime atque. Cum voluptates, exercitationem sapiente enim nobis repellat eaque minima ad! Doloremque pariatur eum saepe.</p>
+        <MyButton class="button" @click="clickHandler" name="Eko" contoh="kurniawan"/>
+    </template>
+
+    <template #footer>
+        <p>Copyright 2024 @Program 2026</p>
+    </template>
+ </container>
+ 
 </template>
 
 <style scoped>

@@ -592,8 +592,43 @@ Secara otomatis attribute tidak akan diteruskan/ diwariskan ke element
 
 ---
 
-## 
+## Mengakses Fallthrough Attributes di JavaScript
+Jika kita butuh mengakses Fallthrough Attributes di JavaScript, kita bisa menggunakan function useAttrs()</br>
+https://vuejs.org/api/composition-api-helpers.html#useattrs</br>
+Namun perlu diperhatikan, attribute yang didefinisikan di Props(defineProps) atau Event (defineEmits), tidak akan didapatkan menggunakan useAttrs()
 
+---
+
+## Component Slot
+Saat kita membuat Component, kadang ada kasus dimana Component tersebut bisa diisi template</br>
+Contoh kita buat Component Layout atau Container, dimana isi content nya bisa diisi dengan template lain</br>
+Pada kasus itu, kita bisa gunakan fitur bernama Slot</br>
+Caranya, kita bisa menggunakan tag slot di dalam Component tersebut, secara otomatis nanti kita bisa mengubah isi slot dengan template ketika kita menggunakan Component tersebut
+
+---
+
+## Fallback Content
+Slot bisa memiliki Fallback Content, kita cukup isi dalam tag slot</br>
+Fallback Content akan ditampilkan, jika ketika kita menggunakan Component yang memiliki Slot, kita tidak menambahkan template di dalamnya
+
+---
+
+## Named Slot
+Component juga mendukung memiliki banyak Slot, namun saat kita membuat banyak Slot, kita perlu memberi nama pada Slot tersebut</br>
+Fitur ini socok ketika kita ingin membuat Component berupa Layout Template </br>
+Misal, kita akan ubah Container tersebut menjadi memiliki slot untuk Header, Content dan Footer</br>
+Kita bisa menentukan Slot yang menjadi default dengan nama default </br>
+Dan ketika menggunakan Component yang memilik banyak SLot, kita bisa menentukan Slot mana yang ingin kita isi dengan menggunakan Directive v-slot</br> 
+https://vuejs.org/api/built-in-directives.html#v-slot</br>
+Atau bisa menggunakan shortcut #namaslot
+
+---
+
+## Conditional Slot
+Kadang, mungkin kita ingin melakukan pengecekan apakah Slot tersedia atau tidak</br>
+Jika tidak, misal kita memang tidak ingin menampilkan element apapun Kita bisa mendapat informasi Slot menggunakan function useSlots()</br>
+https://vuejs.org/api/composition-api-helpers.html#useslots</br>
+Lalu, kita bisa melakukan pengecekan menggunakan Directive v-if
 
 ---
 
