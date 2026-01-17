@@ -17,7 +17,8 @@ export default defineConfig({
         contact: "contact.html",
         product: "product.html",
         note: "note.html",
-        button: "button.html",
+        button: "button.html",        
+        home: "home.html",
       }
     }
   }

@@ -9,13 +9,13 @@ function clickHandler(){
 
 <template>
  <container title="Contoh Button">
-    <template #header>
-        <h1>Button App</h1>
+    <template #header="attributes">
+        <h1>Button App{{ attributes.counter }}</h1>
     </template>
 
-    <template v-slot:default>
+    <template v-slot:default="attributes">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate at dolorem ipsa eos quas maxime atque. Cum voluptates, exercitationem sapiente enim nobis repellat eaque minima ad! Doloremque pariatur eum saepe.</p>
-        <MyButton class="button" @click="clickHandler" name="Eko" contoh="kurniawan"/>
+        <MyButton class="button" @click="clickHandler" :name="attributes.counter" contoh="kurniawan"/>
     </template>
 
     <template #footer>

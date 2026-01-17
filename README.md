@@ -640,6 +640,28 @@ Hal ini bisa dilakukan dengan mudah, caranya kita bisa mengirim attribute ke slo
 
 ---
 
+## Mengakses Attribute dari Slot
+Cara mengakses attribute dari content Slot caranya kita bisa menggunakan v-slot="namaVariable"</br>
+Selanjutnya kita bisa mengakses semua attribut nya menggunakan variable namaVariable</br>
+Jika janya ada satu Slote, kita bisa gunakan v-slot di COmponent, jika ada multiple Slot, kita bisa gunakan v-slot di tiap templatenya
+
+---
+
+## Dynamic Component
+Kadang ada kasus dimana kita ingin berpindah dari satu Component ke Component yang lain di satu lokasi DOM. Misal kita membuat Tab contohnya</br>
+Atrinya data di lokasi Dom tersebut bisa dinamis dan berganti-ganti Component</br>
+Untuk melakukan hal itu, kita bisa memanfaatkan tag component dan attribute is untuk menentukan apakah Component tersebut harus muncul atau tidak </br>
+https://vuejs.org/api/built-in-special-elements.html#component</br>
+https://vuejs.org/api/built-in-special-attributes.html#is
+
+---
+
+## Props Problem
+Biasanya saat kita ingin mengirim kan data dari Parent ke Child dan ke Child nya lagi, maka kita harus menggunakan Props. Artinya tiap Child harus membuat Props yang sama agar bisa dikirim ulang oleh Chlid diatasnya</br>
+Hal ini kadang bisa menjadi masalah karena terlalu banyak kode yang harus dibuat, dan pastinya rentan terjadi kesalahan dalam pembuatan kodenya
+
+---
+
 ## 
 
 
