@@ -1,5 +1,13 @@
 <script setup>
-const model = defineModel();
+const model = defineModel({
+    type: Object,
+    required: true,
+    get: (value) => {
+        value.email = value.email.toUpperCase();
+        return value;
+    }
+});
+
 </script>
 
 <template>

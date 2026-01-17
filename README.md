@@ -551,6 +551,47 @@ Kita bisa gunakan default untuk menentukan default value jika tidak diisi
 
 ---
 
+## Model Argument
+Saat kita membuat Model, kita bisa menambahkan Argument pada model ketika menggunakan defineModel(argument,option)</br>
+Dengan menggunakan Argument, kita bisa membuat Model lebih dari satu untuk sebuah Component, asalkan nama Argument nya berbeda</br>
+Contoh kita akan coba buat Component ContactList.vue, namun kita tidak akan menggunakan 1 model, melainkan tiap field Contact kita akan jadikan sebagai Model Argument
+
+---
+
+## Model Getter dan Setter
+Model Option memiliki Getter dan Setter dalam key get dan set</br>
+Dengan menggunakan Getter dan Setter ini, kita bisa melakukan logic sebelum data diambil(getter), dan sebelum data diubah (setter)</br>
+Misal, kita ingin di ContactForm, data email harus selalu uppercase, jadi ketika data contact diambil, kita akan ubah dulu email nya menjadi uppercase
+
+---
+
+## Model Modifier
+Model juga bisa memiliki modifier</br>
+Seperti yang kita tahu bahwa modifier ditambahkan dengan titik diikuti nama modifier</br>
+Untuk mendapatkan modifier yang digunakan, kita bisa melakukan Array Destructuring ketika membuat defineModel(), misal</br>
+const[name, modifiers] = defineModel("name")</br>
+Variable modifiers akan berisikan object dengan key berupa nama modifier yang digunakan</br>
+Model Modifier sangat cocok dikombinasikan dengan getter dan setter.</br>
+Sekarang kita akan coba tambahkan modifier di ContactList.vue
+
+---
+
+## Fallthrough Attributes
+Fallthrough Attributes merupakan attribute atau event listener yang diteruskan oleh Component, tapi tidak secara explicit dideklarasikan menggunakan Props defineProps() atau Event defineEmits(). Contoh misal nya attribute class, style dan id</br>
+Ketika kita membuat Component yang didalam template nya hanya berisi single element, maka secara otomatis Fallthrough Attributes akan ditambahkan ke element tersebut dari Component</br>
+Misal, kita akan membuat component MyButton, dan isinya hanya button </br>
+Secara otomatis attribute yang ditambahkan di MyButton akan ditambahkan ke button
+
+---
+
+## Menonaktifkan Fallthrough Attributes
+Jika kita tidak ingin menggunakan Fallthrough Attributes, sehingga attribute tidak diteruskan ke element di dalam Component, kita bisa menambah options pada Component dengan menggunakan method defineOptions()</br>
+https://vuejs.org/api/sfc-script-setup.html#defineoptions</br>
+Kita bisa gunakan key inheritAttrs : false</br>
+Secara otomatis attribute tidak akan diteruskan/ diwariskan ke element
+
+---
+
 ## 
 
 
