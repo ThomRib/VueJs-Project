@@ -385,9 +385,9 @@ https://vuejs.org/api/built-in-directives.html#v-model
 
 ## Supported Input Binding
 Directive v-model mendukung banyak Input Binding</br>
-Element <input> dan <textarea> akan menggunakan attribut value dan menggunakan @input event</br>
-Element <input> type checkbox dan radio, menggunakan attribute checked dan menggunakan @change event</br>
-Element <select> menggunakan attribute value dan menggunakan @change event
+Element input dan textarea akan menggunakan attribut value dan menggunakan @input event</br>
+Element input type checkbox dan radio, menggunakan attribute checked dan menggunakan @change event</br>
+Element select menggunakan attribute value dan menggunakan @change event
 
 ---
 
