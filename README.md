@@ -632,6 +632,14 @@ Lalu, kita bisa melakukan pengecekan menggunakan Directive v-if
 
 ---
 
+## Scoped Slot
+Saat kita mengisi Slot menggunakan template, kita tahu bahwa itu dilakkukan di Parent Component nya.</br>
+Artinya kita tidak bisa mengakses State yang terdapat di dalam Child Componentnya </br>
+Namun, mungkin ada kondisi dimana isi dari Slot ingin bisa mengakses Parent State dan juga Child State</br>
+Hal ini bisa dilakukan dengan mudah, caranya kita bisa mengirim attribute ke slot, dan secara otomatis attribute tersebut bisa diakses di konten Slot
+
+---
+
 ## 
 
 

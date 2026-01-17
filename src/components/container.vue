@@ -1,26 +1,21 @@
 <script setup>
-const {title} = defineProps({
-    title:String
-})
+import { useSlots } from 'vue';
+const slots = useSlots();
 
-const slots = useSlots(){
-    
-}
 </script>
 
 <template>
-   <h1>{{ title }}</h1>
-   <div>
+   <div v-if="slots.header">
         <slot name="header">
             <h1>Default Header</h1>
         </slot>
    </div>
-   <div>
+   <div v-if="slots.default">
         <slot name="default">
             <p>anda belum mengisi kontennya</p>
         </slot>
    </div>
-   <div>
+   <div v-if="slots.footer">
         <slot name="footer">
             <p>Default Footer</p>
         </slot>
