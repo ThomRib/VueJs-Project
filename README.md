@@ -415,3 +415,126 @@ Kita bisa menambah options immediate: tru jika ingin watch() langsung mengekseku
 Kita bisa menambah options once: true, jika hanya ingin mentrigger callback function hanya sekali, sehingga ketika source berubah, tidak akan di trigger ulang
 
 ---
+
+## Watch Effect
+Salah satu yang bisa dilakukan saat menggunakan watch() adalah, menggunakan state sebagai source, dan menggunakan immediate: true agar watch() langsung mengeksekusi callback funciton</br>
+Vue memiliki shortcut function yang watchEffect(callback), yang bisa digunakan sebagai pengganti watch()</br>
+Function WatchEffect() secara otomatis akan bersifat immediate:true dan juga akan melakukan track state yang terdapat di callback function </br>
+https://vuejs.org/api/reactivity-core.html#watcheffect
+
+---
+
+## Cleanup
+Pada beberapa kasus, mungkin kita ingin melakukan proses cleanup sebelum proses trigger ulang callback function di watch selanjutnya</br>
+Untuk melakukan itu, di dalam callback function watch, kita bisa menggunakan onWatcherCleanup()</br>
+Namun onWatcherCleanup() tidak mendukung async, sehingga kita harus registrasikan sebelum kita menggunakan await jika menggunakan async function</br>
+https://vuejs.org/api/reactivity-core.html#onwatchercleanup
+
+---
+
+## Template Refs
+Vue sendiri sudah memiliki fitur untuk melakkukan Input Binding menggunakan Directive v-model</br>
+Namun, pada keadaan tertentu, mungkin kita masih butuh mengakses langsung element di DOM</br>
+Kita bisa saja menggunakan DOM API yang bisa kita lakukan, namun Vue memberi cara yang lebih mudah, menggunakan Ref</br>
+Dalam element, kita bisa tambahkan attribut ref yang bisa digunakan untuk melakukan binding dari element ke variable di JavaScript</br>
+Caranya kita perlu menggunakan useTemplateRef() untuk membuat variable nya</br>
+https://vuejs.org/api/composition-api-helpers.html#usetemplateref
+
+---
+
+## Ref dalam v-for
+Kita juga bisa menambahkan ref pada element yang menggunakan Directive v-for</br>
+Namun, hasil dari Element Binding nya adalah Array, karena bisa lebih dari satu element
+
+---
+
+## Lifecycle Hooks 
+Setiap component Vue dibuat dan ditampilkan, terdapat tahapan alur hidup yang dilalui</br>
+Dan kita diberi kemudahan untuk melakukan sesuatu pada setiap alur hidup component, sehingga mempermudah kita ketika ingin melakukan proses pada tiap alur hidup nya</br>
+Kita bisa melihat alur hidup component Vue pada diagram berikut:</br>
+https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
+
+---
+
+## Lifecycle Hooks API
+Jika kita ingin menambahkan kode pada tahapan alur hidup, kita bisa menggunakan function disediakan oleh Vue</br>
+https://vuejs.org/api/composition-api-lifecycle.html
+
+---
+
+## Component
+Sebelumnya, di awal materi kita sudah bahas tentang Component</br>
+Mulai materi ini, kita akan bahas tentang Component lebih dalam lagi, dan fitur-fitur apa saja yang ada di Component
+
+---
+
+## Single File Component
+Seperti yang sudah kita tahu, Vue membuat komponen dalam SFC (Single File Component) dalam file.vue</br>
+Dalam file tersebut, terdapat kode JavaScript, Template dan CSS</br>
+Saat membuat Component, biasanya menggunakan format PascalCase
+
+---
+
+## Menggunakan Component
+Untuk menggunakan Component, cara penggunaanya seperti menggunakan tag html</br>
+Sebelumnya, kita selalu memanggil Component menggunakan createAPP()</br>
+Sebenarnya, kita bisa memanggil Component di dalam Component lainnya
+
+---
+
+## State Scope
+Saat kita memanggil Component yang memiliki State didalamnya, perlu diketahui bahwa State itu akan berada di dalam instance Component nya</br>
+Artinya ketika kita memanggil Component yang sama berkali-kali, maka State akan dibuat dalam instance Component itu, dan akan saling terisolasi satu sama lain</br>
+Jadi kita tidak perlu khawatir State akan bentrok antar component
+
+---
+
+# Component Props
+Component bisa memiliki properties, sehingga saat memanggil Component kita bisa menambahkan value pada property menggunakan seperti attribute pada element</br>
+Untuk menambahkan properties, kita bisa menggunakan function defineProps()</br>
+https://vuejs.org/api/sfc-script-setup.html#defineprops-defineemits
+
+---
+
+## Aturan Props
+Saat kita membuat Props, biasanya kita membuat dengan format camelCase</br>
+Namun saat menambahkan attribut pada Component, kita menggunakan bebab-case</br>
+Misal jika kita punya Props firstName dan lastName, maka saat menggunakan attribute di Component, kita gunakan first-name dan last-name</br>
+Saat menggunakan attribute untuk mengubah value Props, kita juga bisa menggunakan Directive v-bind, sama seperti pada attribute biasanya di DOM element
+
+---
+
+## One-Way Date Flow
+Semua Props itu sifatnya One-Way Daya Flow darai Parent ke Child Component</br>
+Artinya, Ketika Props itu berubah dari Parent, secara otomatis akan berubah ke semua Child nya</br>
+Tapi tidak sebaliknya, jika kita ubah Props di Child, maka Parent tidak akan berubah datanya</br>
+Oleh karena itu, biasanya Props itu memang digunakan sebagai data readonly di Child, hanya Parent yang biasanya mengubah data Props</br>
+Contoh misal, kita akan buat component baru CounterStateless, dimana data counter akan dilakuakn di Parent
+
+---
+
+## Prop Validation
+Sebelumnya, pada Counter kita lakukan konversi tipe data dari Props menjadi Number. Hal ini sangat menyulitkan jika harus dilakukan manual</br>
+Component boleh menentukan requirement untuk Props, seperti tipe datanya, dan wajib atau optional. Atau Kita bilang Prop Validation</br>
+Caranya saat kita menggunakan defineProps(), kita gunakan parameter Object, dimana kita tentukan key sebagai nama props, dan berisi Object lagi yang berisikan type untuk tipe data, required untuk wajib atau tidak, default untuk default datanya dan validator untuk function validasi jika dibutuhkan</br>
+https://vuejs.org/guide/components/props.html#prop-validation
+
+---
+
+## Component Event
+Selain Props, kita juga menambahkan Event Handler ke COmponent</br>
+Caranya, kita bisa menggunakan function defineEmits()</br>
+https://vuejs.org/api/sfc-script-setup.html#defineprops-defineemits</br>
+Jika kita menambahkan Event ke Component, maka kita bisa menggunakan Directive v-on atau @ pada event nya ketika kita menggunakan Component tersebut
+
+---
+
+## 
+
+
+---
+
+## 
+
+
+---
