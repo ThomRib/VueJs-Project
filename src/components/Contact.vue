@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from 'vue';
+import ContactForm from "./ContactForm.vue";
 
 const contact = reactive({
     name:"",
@@ -12,43 +13,8 @@ const contact = reactive({
 </script>
 
 <template>
-   <h1>Contact Us</h1>
-   <form>
-        <div>
-            <label for="name">Name:
-                <input type="text" id="name" v-model="contact.name">
-            </label>
-        </div>
-        <div>
-            <label for="email">Email:
-                <input type="text" id="email" v-model="contact.email">
-            </label>
-        </div>
-        <div>
-            <label for="age">Age:
-                <input type="number" id="age" v-model.number="contact.age">
-            </label>
-        </div>
-        <div>
-            <label for="type">type:
-                <select id="type" v-model="contact.type">
-                    <option value="Regular">Regular</option>
-                    <option value="VIP">VIP</option>
-                </select>                
-            </label>
-        </div>
-        <div>
-            <label for="complain">Complain:
-                <input type="checkbox" id="complain" v-model="contact.complain">               
-            </label>
-        </div>
-        <div>
-            <label for="message">message:
-               <textarea id="message" v-model="contact.message"></textarea>                
-            </label>
-        </div>
-   </form>
-
+   <ContactForm v-model="contact"/>
+  
    <h1>preview</h1>
    <div>
         <p>Name: {{ contact.name }}</p>

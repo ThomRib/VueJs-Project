@@ -529,6 +529,28 @@ Jika kita menambahkan Event ke Component, maka kita bisa menggunakan Directive v
 
 ---
 
+## Event Parameter
+Saat kita memanggil Event, kita juga bisa menambahkan parameter</br>
+Caranya tinggal tambahkan ke parameter kedua dan seterusnya ketika memanggil event nya</br>
+Misal, data nilai increment akan kita kirim via Props, lalu value tersebut kita kan kirim ke Eventnya
+
+---
+
+## Component Model
+Sebelumnya, kita sudah belajar tentang Input Binding menggunakan Directive v-model. Hal ini juga bisa dilakukan di Component</br>
+Kita bisa implementasi Binding Component dengan data menggunakan function defineModel()</br>
+https://vuejs.org/api/sfc-script-setup.html#definemodel
+
+---
+
+## Model Option
+Saat ktia membuat Model menggunakan defineModel(), kita bisa menambahkan option untuk mengatur data Model</br>
+Kita bisa gunakan required : boolean untuk menentukan apakah model wajin atau tidak </br>
+Kita bisa gunakan type untuk menentukan jenis tipe data</br>
+Kita bisa gunakan default untuk menentukan default value jika tidak diisi
+
+---
+
 ## 
 
 
