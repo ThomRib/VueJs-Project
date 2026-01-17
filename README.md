@@ -349,3 +349,69 @@ Hampir semua Event Handler bisa dilakukan di Vue</br>
 https://developer.mozilla.org/en-US/docs/Web/Events
 
 ---
+
+## Inline Statement
+Pada kasus sederhana, kita juga menggunakan Inline Statement sebagai value di Directive v-on</br>
+Contoh menaikkan increment</br>
+Atau memanggil function secara langsung
+
+---
+
+## Event Argument
+Saat kita membuat Event Handler di JavaScript, kita tahu bahwa kita bisa mengakses Event Object pada parameter di Event Handling Function nya </br>
+Hal ini juga bisa dilakukan di Vue, kita bisa menambahkan parameter Event Object</br>
+https://developer.mozilla.org/en-US/docs/Web/API/Event
+
+---
+
+## Event Modifier
+Sangat biasa ketika kita membuat Event Handler, kita memanggil event.preventDefault() atau event.stopPropagation()</br>
+Hal ini sangat mudah dilakukan di Directive v-on</br>
+Kita cukup menambahkan event modifier saat menambahkan v-on atau @ </br>
+Vue menyediakan banyak Modifier, seperti Event Modifier, Key Modifier dan Mouse Modifier</br>
+https://vuejs.org/guide/essentials/event-handling.html#event-modifiers</br>
+https://vuejs.org/guide/essentials/event-handling.html#key-modifiers</br>
+https://vuejs.org/guide/essentials/event-handling.html#mouse-button-modifiers
+
+---
+
+## Input Binding
+Saat kita membuat form di frontend, kadang kita harus melakukan sinkronisasi dengan data di state</br>
+Hal yang bisa kita lakuan sepserti pada materi sebelumnya, menambahkan Event Handler lalu melakukan update data di state secara manual di Event Handler</br>
+Untungnya, Vue menyediakan Directive v-model, yang bisa kita gunakan untuk melakukan sinkronisasi dan State dengan Input</br>
+https://vuejs.org/api/built-in-directives.html#v-model
+
+---
+
+## Supported Input Binding
+Directive v-model mendukung banyak Input Binding</br>
+Element <input> dan <textarea> akan menggunakan attribut value dan menggunakan @input event</br>
+Element <input> type checkbox dan radio, menggunakan attribute checked dan menggunakan @change event</br>
+Element <select> menggunakan attribute value dan menggunakan @change event
+
+---
+
+## Model Modifier
+Saat kita menggunakan v-model, kita bisa menggunakan beberapa modifier</br>
+.lazy, yang digunakan untuk mengubah data ketika menjadi event @change, bukan event @input</br>
+.number, yang digunakan untuk mengubah data menjadi number secara otomatis</br>
+.trim, yang digunakan untuk menghapus whitespace di awal dan akhir value
+
+---
+
+## Watchers
+Vue memiliki fitur bernama watch() function, yang digunakan untuk meregistrasi callback function yang akan di trigger otomatis ketika sebuah state berubah</br>
+Kita bisa melakukan banyak hal di watch() function, misal mengubah DOM memanggil API lain ketika terjadi perubahan di state menggunakan watch() function ini </br>
+Watch() function memiliki 3 parameter, source, callback function dan options</br>
+https://vuejs.org/api/reactivity-core.html#watch</br>
+Source pada watch() bisa berupa getter function, ref, reactive, atau array yang berisi data tersebut
+
+---
+
+## Watcher Options
+Secara default, watch() function itu lazy, artinya menunggu source berubah dulu, baru callback function akan ditrigger. dan akan di trigger ulang jika source berubah lagi</br>
+Kita bisa menambah options di watch() untuk mengubah behavior dari watch() function </br>
+Kita bisa menambah options immediate: tru jika ingin watch() langsung mengeksekusi callback saat pertama kali, ini cocok jika kita ingin load data awal langsung</br>
+Kita bisa menambah options once: true, jika hanya ingin mentrigger callback function hanya sekali, sehingga ketika source berubah, tidak akan di trigger ulang
+
+---
