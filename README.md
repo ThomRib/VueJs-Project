@@ -670,12 +670,44 @@ Parent Component bisa menyediakan data menggunakan provide(), dan semua Child Co
 
 ---
 
-## 
-
+## Provide
+Untuk menyediakan data, kita bisa menggunakan function provide()</br>
+https://vuejs.org/api/composition-api-dependency-injection.html#provide</br>
+Provide memiliki 2 parameter, key dan juga valuenya</br>
+Kita bisa mengisi value dengan tipe apapun, misal data primitive, object, sampai ke State
 
 ---
 
-## 
+## Inject
+Untuk mengambil data yang disimpan di provide(), kita bisa menggunakan inject()</br>
+https://vuejs.org/api/composition-api-dependency-injection.html#inject</br>
+Inject memiliki 2 parameter, key dan default value
 
+---
+
+## Peringatan
+Provide dan Inject itu hampir mirip seperti Global Variable di Parent dan Child Component, karena semua Child Component bisa mengakses data yang sama</br>
+Berbeda dengan State yang saling terisolasi antar Component, Provide dan Inject akan mendapat data yang sama di semua Child Component</br>
+Oleh karena itu, harap diperhatikan kita menggunakan Provide dan Inject</br>
+Sebisa mungkin gunakan ini jika memang sudah sulit menggunakan Props
+
+---
+
+# Component Instance
+Sebelumnya, saat ingin mendapatkan data di Component, kita akan menggunakan function-function di Vue, seperti useSlots(), useAttrs(), dan lain lain</br>
+Sebenarnya semua hal itu sudah dibuatkan dalam properties di dalam Componentnya secara otomatis, kita tinggal mengaksesnya saja menggunakan nama propertiesnya</br>
+Kita bisa lihat semua daftar properties yang terseedia di Component</br>
+https://vuejs.org/api/component-instance.html
+
+---
+
+## Referensi Lengkap
+https://vuejs.org/api/
+
+<!-- Untuk membuat table
+| header | colom2 | colom3 |
+| :--- | :--- | :--- | untuk membuat garis tebal di table
+| **row1** | `colom1` | `colom2` |
+| **row2** | `colom1` | `colom2` | -->
 
 ---
