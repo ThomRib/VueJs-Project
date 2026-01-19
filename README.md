@@ -659,6 +659,19 @@ https://vuejs.org/api/built-in-special-attributes.html#is
 ## Props Problem
 Biasanya saat kita ingin mengirim kan data dari Parent ke Child dan ke Child nya lagi, maka kita harus menggunakan Props. Artinya tiap Child harus membuat Props yang sama agar bisa dikirim ulang oleh Chlid diatasnya</br>
 Hal ini kadang bisa menjadi masalah karena terlalu banyak kode yang harus dibuat, dan pastinya rentan terjadi kesalahan dalam pembuatan kodenya
+![alt text](image.png)
+
+---
+
+## Provide dan Inject
+Masalah Props tersebut, bisa kita atasi dengan provide() dan inject()</br>
+Parent Component bisa menyediakan data menggunakan provide(), dan semua Child Component, tidak peduli seberapa dalam pun, bisa mengambil datanya menggunakan inject()
+![alt text](image-1.png)
+
+---
+
+## 
+
 
 ---
 
